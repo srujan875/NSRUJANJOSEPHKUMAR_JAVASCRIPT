@@ -1,0 +1,407 @@
+<html>
+    <head>
+        <title>Registration</title>
+        <link href="css/boot1strap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="https://f1onts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+         <script src="js/jquery.validate.min.js"></script>
+<!--This is the validation script for the form-->
+        <script type="text/javascript" >
+        
+        
+
+
+function validate()
+{
+
+var c=0;
+var name=document.getElementById('uname').value;
+var regex = /^[A-Za-z ]+$/
+ 
+        
+ var isValid = regex.test(name);
+
+if(name.length==0)
+{
+    document.getElementById("unameerr").innerHTML="* please enter Full Name ";
+    document.getElementById("unameerr").style.color="red";
+    c=1;
+   
+}
+else if(!isValid)
+ {
+    document.getElementById("unameerr").innerHTML="* Name should only contains Alphabets";
+    document.getElementById("unameerr").style.color="red"; 
+    c=1;
+ }
+else if(name.length<5)
+{
+    document.getElementById("unameerr").innerHTML="* name must be atleast 8 Characters ";
+    document.getElementById("unameerr").style.color="red";
+    c=1;
+   
+}
+
+
+var email=document.getElementById('emailadd').value;
+if(email.length==0)
+{
+    document.getElementById('emailerr').innerHTML="* please enter email address";
+    document.getElementById("emailerr").style.color="red";
+    c=1;
+}
+else
+{
+    var atpos = email.indexOf('@');
+
+var dotpos = email.lastIndexOf('.');
+
+
+if(atpos<5 || dotpos-atpos<5)
+{
+ document.getElementById("emailerr").innerHTML="* please enter a valid email address mail@company.com";
+ document.getElementById("emailerr").style.color="red";
+ c=1;
+}
+else
+{
+ document.getElementById("emailerr").innerHTML="";
+
+}
+}
+
+
+var phone=document.getElementById('phone').value;
+if(phone.length==0)
+{
+    document.getElementById("phoneerr").innerHTML="* Please enter mobile number";
+    document.getElementById("phoneerr").style.color="red";
+    c=1;
+}
+else if(phone.length!=10)
+{
+    document.getElementById("phoneerr").innerHTML="* mobile number must be a length of 10 digits ";
+    document.getElementById("phoneerr").style.color="red";
+    c=1;
+}
+else if(isNaN(phone))
+{
+    document.getElementById("phoneerr").innerHTML="* mobile number must contain only numbers ";
+    document.getElementById("phoneerr").style.color="red";
+    c=1;
+}
+
+
+
+
+var dob= document.getElementById("dob").value;
+var regex3 = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+
+
+var isValid9 = regex3.test(dob);
+
+if(dob.length==0)
+{
+    document.getElementById("doberr").innerHTML="* Please enter the Date Of Birth ";
+    document.getElementById("doberr").style.color="red"; 
+    c=1;
+}
+else if(!isValid9)
+{
+    document.getElementById("doberr").innerHTML="* Please enter a valid date format(dd/mm/yyyy) ";
+    document.getElementById("doberr").style.color="red"; 
+    c=1;
+}
+
+
+
+
+
+
+
+
+
+
+
+var regex2 =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
+var pwd=document.getElementById('pwd').value;       
+ var isValid2 = regex2.test(pwd);
+
+if(pwd.length==0)
+{
+ 
+    document.getElementById("pwderr").innerHTML="* Please enter password";
+    document.getElementById("pwderr").style.color="red";  
+    c=1; 
+}
+else if(pwd.length<8 )
+{
+    document.getElementById("pwderr").innerHTML="* Password must be min. of 8 characters";
+    document.getElementById("pwderr").style.color="red";
+    c=1;
+}
+else if(!isValid2)
+{
+    document.getElementById("pwderr").innerHTML="* password must contain atleast one uppercase,one lowercase,one digit,one special character";
+    document.getElementById("pwderr").style.color="red";
+    c=1;
+}
+
+
+var cpwd=document.getElementById('cpwd').value;
+if(cpwd!=pwd || cpwd.length==0)
+{
+    
+    document.getElementById("cpwderr").innerHTML="* password and confirm password must be same";
+    document.getElementById("cpwderr").style.color="red";
+    c=1;
+}
+
+
+
+var x=document.getElementsByClassName('form-control');
+for(var i=0;i<6;i++)
+{
+if(x[i].value.length==0)
+{
+document.getElementsByClassName('form-control')[i].focus();
+    return false;
+}
+}
+if(c==0)
+return true;
+
+return false;
+
+
+
+}
+
+
+function myFunction(x)
+{
+   
+    var err=document.getElementById(x).innerText;
+    if(err.length!=0)
+    {
+        document.getElementById(x).innerHTML="";
+    }
+  
+}
+
+
+
+        </script>
+        
+   <style type='text/css'>
+
+
+    body{
+         background-color:black;
+        }
+    .form-group i{
+
+                  position :relative;
+                  color:gray;
+
+                 }
+    .logo-mb-3{
+               padding :10px 5px 10px;
+               background-color:#5bc0de;
+               color:white;
+              }
+    .form-group1{
+
+                 padding:20px 30px 5px 30px;
+                }
+    .form-group2{
+                 padding: 20px 30px 5px 30px;
+
+                }
+    .form-group5{
+                 padding: 45px 30px 5px 30px;
+
+                }
+    .form-group6{
+                 padding: 20px 30px 5px 30px;
+
+                }
+    .form-group7{
+                 padding: 20px 30px 5px 30px;
+
+                }
+    
+                .col-md-12-text-center{
+
+                          color:white;
+                         }
+     .myform-form{
+                  box-shadow:0px 0px 5px 0px ;
+                  background-color:white;
+                  border: 1px solid lightskyblue;
+                }
+     .close {
+              color: #fff; 
+               opacity: 1;
+ 
+             }
+
+.header{
+        
+        background-color:#5bc0de;
+        text-align:center;
+         color:white;
+         font-weight: normal;
+        padding: 10px 13px 10px 5px;
+    }
+
+.header i{
+
+left:30px;
+padding:5px;
+position:absolute;
+ color: #fff; 
+    opacity: 1;
+}
+
+.form-control{
+
+font-weight:700
+
+}
+
+.form-group1 i{
+
+position:absolute;
+color:gray;
+padding:11px;
+right:45px;
+
+}
+.form-group6 i{
+
+position:absolute;
+color:gray;
+padding:11px;
+right:49px;
+
+}
+.form-group7 i{
+
+position:absolute;
+color:gray;
+padding:11px;
+right:53px;
+
+}
+.form-group5 i{
+
+position:absolute;
+color:gray;
+padding:11px;
+right:49px;
+
+}
+.form-group2 i{
+
+position:absolute;
+color:gray;
+padding:11px;
+right:49px;
+
+}
+.form-group3
+{
+
+padding: 30px 30px 10px 30px;
+}
+
+
+</style>
+
+
+</head>
+
+
+
+
+<body>
+    <div class="container">
+        <div class="row">
+			<div class="col-md-5 mx-auto">
+			<div id="first">
+				<div class="myform-form ">
+					<div class="header">
+<i class="fa fa-graduation-cap"></i>
+<Strong>EPAM Registration</Strong> 
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="modal_button">&times;</span><span class="sr-only">Close</span></button>
+</div>	 
+                  
+                    
+                   <form  method="post" name="register" action="success.html" onsubmit="return validate()">
+                    <div class="form-group5">
+
+                        <i class="fa fa-user icon"> 
+                                </i> 
+                       
+      <input type="text" name="name"  class="form-control" id="uname"   onchange="myFunction('unameerr')" aria-describedby="emailHelp" placeholder="enter Full Name">
+            <span id="unameerr"></span>
+                                               </div>       
+                    <div class="form-group1">
+
+	<i class="fa fa-envelope icon"> 
+			</i> 
+   
+                              <input type="email" name="emaila"  class="form-control" id="emailadd"  onchange="myFunction('emailerr')" aria-describedby="emailHelp" placeholder="enter Email Address">
+                               <span id="emailerr"></span>
+                           </div>
+                           <div class="form-group6">
+
+                            <i class="fa fa-phone icon"> 
+                                    </i> 
+                           
+                                                      <input type="text" name="uphone" onchange="myFunction('phoneerr')" class="form-control" id="phone"    aria-describedby="emailHelp" placeholder="enter Mobile number">
+                                                 <span id="phoneerr"></span>
+                                                   </div>
+          <div class="form-group7">
+
+                                                    
+            <i class="w3-large fa fa-calendar  icon"></i> 
+                                                   
+                                         <input type="text"  name="dobe" onchange="myFunction('doberr')"  class="form-control" id="dob"   aria-describedby="emailHelp" placeholder="enter DateOfBirth" >
+                                          <span id="doberr"></span>                               
+                                                                           </div>
+                                                   
+                                                   <div class="form-group2">
+<i class="fa fa-lock icon"></i>
+                              <input type="password" name="pwds" id="pwd" onchange="myFunction('pwderr')" class="form-control" aria-describedby="emailHelp" placeholder="enter password">
+                            <span id="pwderr"></span>
+                           </div>
+                           
+                           <div class="form-group2">
+                            <i class="fa fa-lock icon"></i>
+                                                          <input type="password" name="cpassword" id="cpwd"  onchange="myFunction('cpwderr')"   class="form-control" aria-describedby="emailHelp" placeholder="enter Confirm password">
+                                                           <span id="cpwderr"></span>                
+                                                       </div>
+                         <div class="form-group3">
+            
+            <input type="submit" class="btn btn-info btn-block" id="myButton" value="Register">
+        </div>
+                        </form>
+                 
+				</div>
+			</div>
+		</div>
+      </div>         
+</body>
+</html>
